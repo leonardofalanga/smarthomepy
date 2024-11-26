@@ -44,3 +44,4 @@ class TestSmartRoom(unittest.TestCase):
         system = SmartRoom()
         system.manage_light_level()
         mock_light_bulb.assert_called_with(system.LED_PIN, False)
+
