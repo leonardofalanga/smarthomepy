@@ -49,7 +49,7 @@ class TestSmartRoom(unittest.TestCase):
     @patch.object(SmartRoom, "bmp280_indoor", new_callable=PropertyMock)
     @patch.object(SmartRoom, "bmp280_outdoor", new_callable=PropertyMock)
     @patch.object(SmartRoom, "change_servo_angle")
-    def test_manage_window_indoor_low_outdoor(self, mock_change_servo_angle, mock_outdoor, mock_indoor):
+    def test_manage_window_indoor_low_outdoor(self, mock_change_servo_angle: PropertyMock, mock_outdoor: PropertyMock, mock_indoor: PropertyMock):
         mock_indoor.return_value.temperature = 20
         mock_outdoor.return_value.temperature = 23
         room = SmartRoom()
@@ -60,7 +60,7 @@ class TestSmartRoom(unittest.TestCase):
     @patch.object(SmartRoom, "bmp280_indoor", new_callable=PropertyMock)
     @patch.object(SmartRoom, "bmp280_outdoor", new_callable=PropertyMock)
     @patch.object(SmartRoom, "change_servo_angle")
-    def test_manage_window_indoor_high_outdoor(self, mock_change_servo_angle, mock_outdoor, mock_indoor):
+    def test_manage_window_indoor_high_outdoor(self, mock_change_servo_angle: PropertyMock, mock_outdoor: PropertyMock, mock_indoor: PropertyMock):
         mock_indoor.return_value.temperature = 24
         mock_outdoor.return_value.temperature = 21
         room = SmartRoom()
@@ -71,7 +71,7 @@ class TestSmartRoom(unittest.TestCase):
     @patch.object(SmartRoom, "bmp280_indoor", new_callable=PropertyMock)
     @patch.object(SmartRoom, "bmp280_outdoor", new_callable=PropertyMock)
     @patch.object(SmartRoom, "change_servo_angle")
-    def test_manage_window_out_range(self, mock_change_servo_angle, mock_outdoor, mock_indoor):
+    def test_manage_window_out_range(self, mock_change_servo_angle: PropertyMock, mock_outdoor:PropertyMock, mock_indoor:PropertyMock):
         mock_indoor.return_value.temperature = 31
         mock_outdoor.return_value.temperature = 32
         room = SmartRoom()
@@ -82,7 +82,7 @@ class TestSmartRoom(unittest.TestCase):
     @patch.object(SmartRoom, "bmp280_indoor", new_callable=PropertyMock)
     @patch.object(SmartRoom, "bmp280_outdoor", new_callable=PropertyMock)
     @patch.object(SmartRoom, "change_servo_angle")
-    def test_manage_window_in_range_indoor_not_work(self, mock_change_servo_angle, mock_outdoor, mock_indoor):
+    def test_manage_window_in_range_indoor_not_work(self, mock_change_servo_angle: PropertyMock, mock_outdoor:PropertyMock, mock_indoor:PropertyMock):
         mock_indoor.return_value.temperature = 20
         mock_outdoor.return_value.temperature = 21
         room = SmartRoom()

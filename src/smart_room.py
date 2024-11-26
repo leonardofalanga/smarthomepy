@@ -62,6 +62,9 @@ class SmartRoom:
         pass
 
     def manage_window(self) -> None:
+        indoor_temp = self.bmp280_indoor.temperature
+        outdoor_temp = self.bmp280_outdoor.temperature
+
         if 18 <= indoor_temp <= 30 and 18 <= outdoor_temp <= 30:
             if indoor_temp < outdoor_temp - 2:
                 # Apri finestra
