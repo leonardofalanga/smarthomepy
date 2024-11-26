@@ -81,7 +81,7 @@ class SmartRoom:
         pass
 
     def monitor_air_quality(self) -> None:
-        # To be implemented
+
         pass
 
 
