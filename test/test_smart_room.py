@@ -16,3 +16,4 @@ class TestSmartRoom(unittest.TestCase):
         system = PresencePerson()
         occupied = system.check_occupancy(system.INFRARED_PIN1)
         self.assertTrue(occupied)
+
