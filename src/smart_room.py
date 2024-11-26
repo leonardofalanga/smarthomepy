@@ -62,7 +62,19 @@ class SmartRoom:
         pass
 
     def manage_window(self) -> None:
-        # To be implemented
+        if 18 <= indoor_temp <= 30 and 18 <= outdoor_temp <= 30:
+            if indoor_temp < outdoor_temp - 2:
+                # Apri finestra
+                self.change_servo_angle((180 / 18) + 2)
+                self.window_open = True
+            elif indoor_temp > outdoor_temp + 2:
+                # Chiudi finestra
+                self.change_servo_angle((0 / 18) + 2)
+                self.window_open = False
+        else:
+            # Chiudi finestra se fuori range
+            self.change_servo_angle((0 / 18) + 2)
+            self.window_open = False
         pass
 
     def monitor_air_quality(self) -> None:
