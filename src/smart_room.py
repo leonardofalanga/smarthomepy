@@ -47,20 +47,13 @@ class SmartRoom:
         self.fan_on = False
 
     def check_room_occupancy(self) -> bool:
-        if GPIO.input(self.INFRARED_PIN):
-            return True
-        pass
+        return GPIO.input(self.INFRARED_PIN)
 
     def check_enough_light(self) -> bool:
-        if self.bmp280_indor.read_light() > 1000:
-            return True
-        pass
+        return GPIO.input(self.PHOTO_PIN)
 
     def manage_light_level(self) -> None:
-        if self.sensair.read_co2() > 1000:
-            self.light_on = True
-            self.window_open = True
-            self.fan_on = True
+        # To be implemented
         pass
 
     def manage_window(self) -> None:
